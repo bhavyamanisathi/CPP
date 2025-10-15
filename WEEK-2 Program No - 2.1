@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+// Global variable
+int x = 100;
+
+// Namespace declarations
+namespace First
+ {
+    int y = 200;
+}
+
+namespace Second 
+{
+    int y = 300;
+}
+
+// Function to demonstrate scopes
+void show() 
+{
+    int x = 50;  // Local variable
+    cout << "Inside show() - Local x: " << x << ", Global x: " << ::x << endl;
+}
+
+int main() 
+{
+    system("color F0");  // Change console color (Windows only)
+
+    cout << "Roll No: 24B11AI385" << endl;
+
+    // Inner block
+    {
+        int x = 25;
+        cout << "Inner Block x: " << x << endl;
+    }
+
+    // Access global variable
+    cout << "Global x (outside block): " << x << endl;
+
+    // Call the function
+    show();
+
+    // Access variables from namespaces
+    cout << "First namespace y: " << First::y << endl;
+    cout << "Second namespace y: " << Second::y << endl;
+
+    return 0;
+}
