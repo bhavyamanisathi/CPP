@@ -1,0 +1,26 @@
+#include <map>   
+using namespace std;
+int main() {
+    map<int, string> students;
+    cout << "=== MAP OPERATIONS ===" << endl;
+    students[101] = "Bhavya Mani";
+    students[102] = "Kavya";
+    students[103] = "Pranathi";
+    students.insert({104, "Ishu"});
+    cout << "Students after insertion:" << endl;
+    for (auto x : students)
+        cout << "Roll No: " << x.first << "  Name: " << x.second << endl;
+    cout << "\nAccess element with key 102: " << students[102] << endl;
+    int key = 103;
+    auto it = students.find(key);
+    if (it != students.end())
+        cout << "Found student with Roll No " << key << ": " << it->second << endl;
+    else
+        cout << "Student with Roll No " << key << " not found!" << endl;
+    students.erase(101); 
+    cout << "\nAfter deleting key 101:" << endl;
+    for (auto x : students)
+        cout << "Roll No: " << x.first << "  Name: " << x.second << endl;
+    cout << "\nTotal students: " << students.size() << endl;
+    return 0;
+} 
