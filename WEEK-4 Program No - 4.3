@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class BankAccount 
+{
+private:
+    string accountHolder;
+    float balance;
+
+public:
+    // Constructor to initialize data members
+BankAccount(string name, float amount) 
+{
+        accountHolder = name;
+        balance = amount;
+    }
+
+    // Declare friend function
+    friend void showAccountDetails(BankAccount acc);
+};
+
+// Friend function definition
+void showAccountDetails(BankAccount acc) 
+{
+    cout << "\n--- Account Details ---\n";
+    cout << "Account Holder: " << acc.accountHolder << endl;
+    cout << "Balance       : ₹" << acc.balance << endl;
+}
+
+int main() 
+{
+    string name;
+    float amount;
+
+    // Input account holder's name and balance
+    cout << "Enter Account Holder Name: ";
+    getline(cin, name);
+
+    cout << "Enter Initial Balance: ₹";
+    cin >> amount;
+
+    // Create BankAccount object
+    BankAccount userAccount(name, amount);
+
+    // Call friend function
+    showAccountDetails(userAccount);
+
+    return 0;
+}
